@@ -1,0 +1,157 @@
+<link rel="stylesheet" type="text/css" href="static/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="static/homepage.css">
+{% extends "layout.html" %}
+{% block body %}
+    <h1>ELO Fantasy Football Rankings</h1>
+    <div class="nav">
+        <div class="container">
+           <ul class="pull-left">
+                <li><a href="#">Nav1</a></li>
+            </ul>
+            <ul class="pull-right">
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="container">
+            <div class="row">
+                <div id= "Rankings" class="col-md-4">
+                    <h3>Current Rankings:</h3>
+                    <p><a id="FullRankings" href="/rankings">See full rankings...</a></p>
+                    <table id="RB">
+                        <p class="position">Top 5 Running Backs:</p>
+                        <tr>
+                            <td>Eric</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Michael</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Jon</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>David</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Erich</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                    </table>
+                    <table  id="WR">
+                        <p class="position">Top 5 Wide Receivers:</p>
+                        <tr>
+                            <td>Eric</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Michael</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Jon</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>David</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Erich</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                    </table>
+                    <table  id="QB">
+                        <p class="position">Top 5 Quarterbacks:</p>
+                        <tr>
+                            <td>Eric</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Michael</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Jon</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>David</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Erich</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                    </table>
+                    <table  id="TE">
+                        <p class="position">Top 5 Tight Ends:</p>
+                        <tr>
+                            <td>Eric</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Michael</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Jon</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>David</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Erich</td>
+                            <td>Team name</td>
+                            <td>...</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="Voting" class="col-md-4">
+                    <h3>Voting</h3>
+                    <p>Voting links here</p>
+                </div>
+                <div id="Twitter" class="col-md-4">
+                    <h3>Twitters</h3>
+                    <a class="twitter-timeline" href="https://twitter.com/Inbl7" data-widget-id="620817063406231553">Tweets by @Inbl7</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--div class="columns">
+        <div class="container">
+            <div class="row">
+                <div id= "About" class="col-md-12">
+                    <p><a href="/about">about</a></p>
+                </div>
+            </div>
+        </div>
+    </div-->
+
+{% endblock %}

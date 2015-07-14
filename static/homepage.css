@@ -1,0 +1,75 @@
+.nav a {
+    color: #5a5a5a;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 14px 10px;
+    text-transform: uppercase;
+}
+
+.nav li {
+    display: inline;
+}
+
+body {
+    /*background-color: #222222;*/
+    background-color: #f4f4f4;
+    margin: -20px 20px 20px 20px;
+}
+
+h1 {
+    padding: 5px;
+    background-color: darkcyan;
+    text-align: center;
+}
+
+
+
+.columns .container {
+    /*background-color: #888888;*/
+    background-color: white;
+    height: auto;
+}
+
+.col-md-4 {
+    border-right: 1px solid #ccc;
+    height: 550px;
+}
+
+h3 {
+    color: darkblue;
+    text-align: center;
+}
+
+div#about {
+    width: 300px;
+    position: relative;
+    left: 37%;
+}
+p.position {
+    color: white;
+    margin: auto;
+}
+
+.twitter-timeline {
+    height: 450px;
+}
+
+p {
+    text-align: center;
+}
+
+p.position {
+    background-color: #595959
+}
+
+.col-md-4 {
+    /*border: 1px solid black;*/
+    padding: 10px;
+}
+
+td {
+    text-align: left;
+    color: midnightblue;
+    font-weight: bold;
+    padding: 0px 10px 0px 10px;
+}
