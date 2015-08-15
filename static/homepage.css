@@ -27,11 +27,11 @@ h1 {
 .columns .container {
     /*background-color: #888888;*/
     background-color: white;
-    height: auto;
+    height: 575px;
 }
 
 .col-md-4 {
-    border-right: 1px solid #ccc;
+    border-right: 1px solid #f4f4f4;
     height: 550px;
 }
 
