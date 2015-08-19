@@ -1,18 +1,7 @@
-<link rel="stylesheet" type="text/css" href="static/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="static/homepage.css">
+<link rel="stylesheet" type="text/css" href="/static/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/static/homepage.css">
 {% extends "layout.html" %}
 {% block body %}
-    <h1>ELO Fantasy Football Rankings</h1>
-    <div class="nav">
-        <div class="container">
-           <ul class="pull-left">
-                <li><a href="#">Nav1</a></li>
-            </ul>
-            <ul class="pull-right">
-                <li><a href="/about">About</a></li>
-            </ul>
-        </div>
-    </div>
     <div class="columns">
         <div class="container">
             <div class="row">
@@ -163,7 +152,8 @@
                 <div id="Voting" class="col-md-4">
                     <h3>Voting</h3>
                     <p>Voting links here</p>
-                    <p><a id="VotingLink1" href="/matchups/1">Vote</a></p>
+                    <p><a id="VotingLink1" href="/matchups/1">Start voting!</a></p>
+                    <p><a id="VotingLink2" href="/">Pick a position to vote on!</a></p>
                     {% if session.voted %}
                     <p>Thanks for voting for {{ session.choice }}</p>
                     {% endif %}
