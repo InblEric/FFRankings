@@ -21,7 +21,14 @@
                     <p><a id="FullRankings" href="/rankings">See full rankings...</a></p>
                     <table id="RB">
                         <p class="position">Top 5 Running Backs:</p>
+                        {% for rb in rbs %}
                         <tr>
+                            <td>{{ rb.name }}</td>
+                            <td>{{ rb.position }}</td>
+                            <td>{{ rb.team }}</td>
+                        </tr>
+                        {% endfor %}
+                        <!--tr>
                             <td>Eric</td>
                             <td>Team name</td>
                             <td>...</td>
@@ -45,11 +52,18 @@
                             <td>Erich</td>
                             <td>Team name</td>
                             <td>...</td>
-                        </tr>
+                        </tr-->
                     </table>
                     <table  id="WR">
                         <p class="position">Top 5 Wide Receivers:</p>
+                        {% for wr in wrs %}
                         <tr>
+                            <td>{{ wr.name }}</td>
+                            <td>{{ wr.position }}</td>
+                            <td>{{ wr.team }}</td>
+                        </tr>
+                        {% endfor %}
+                        <!--tr>
                             <td>Eric</td>
                             <td>Team name</td>
                             <td>...</td>
@@ -73,11 +87,18 @@
                             <td>Erich</td>
                             <td>Team name</td>
                             <td>...</td>
-                        </tr>
+                        </tr-->
                     </table>
                     <table  id="QB">
                         <p class="position">Top 5 Quarterbacks:</p>
+                        {% for qb in qbs %}
                         <tr>
+                            <td>{{ qb.name }}</td>
+                            <td>{{ qb.position }}</td>
+                            <td>{{ qb.team }}</td>
+                        </tr>
+                        {% endfor %}
+                        <!--tr>
                             <td>Eric</td>
                             <td>Team name</td>
                             <td>...</td>
@@ -101,11 +122,18 @@
                             <td>Erich</td>
                             <td>Team name</td>
                             <td>...</td>
-                        </tr>
+                        </tr-->
                     </table>
                     <table  id="TE">
                         <p class="position">Top 5 Tight Ends:</p>
+                        {% for te in tes %}
                         <tr>
+                            <td>{{ te.name }}</td>
+                            <td>{{ te.position }}</td>
+                            <td>{{ te.team }}</td>
+                        </tr>
+                        {% endfor %}
+                        <!--tr>
                             <td>Eric</td>
                             <td>Team name</td>
                             <td>...</td>
@@ -129,7 +157,7 @@
                             <td>Erich</td>
                             <td>Team name</td>
                             <td>...</td>
-                        </tr>
+                        </tr-->
                     </table>
                 </div>
                 <div id="Voting" class="col-md-4">
