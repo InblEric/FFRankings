@@ -1,4 +1,13 @@
 {% extends "layout.html" %}
 {% block body %}
     <p>This is the matchup page for matchup {{ num }}</p>
+
+
+    <form method="post" action="{{ url_for('voted') }}">
+        <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+            <input type="submit" name="value" value="Vote1" />
+            <input type="submit" name="value" value="Vote2" />
+        </div>
+    </form>
+
 {% endblock %}
