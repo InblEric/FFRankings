@@ -24,5 +24,5 @@ Flask App for ELO Fantasy Rankings
 To populate the db, you can do:
 
    `$ python populate-db.py`
-   
+
 WARNING: this will wipe out anything currently in the db.

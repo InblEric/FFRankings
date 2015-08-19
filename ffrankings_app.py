@@ -23,7 +23,7 @@ def get_fantasy_week(today=datetime.date.today()):
 
 
 
-emptyPlayer = Player("No more players", "...", "...")
+emptyPlayer = Player("No more players", "...", "...", "")
 
 @app.route('/')
 def hello():
