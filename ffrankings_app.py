@@ -1,23 +1,87 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from models.player import Player
+from models.player import db
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'HEROKU DB'
+
+# later on
+db.init_app(app)
+
+
+emptyPlayer = Player("No more players", "...", "...")
 
 @app.route('/')
 def hello():
-    return render_template('home.html')
+    #store/log hit to this endpoint for stats
+    #players = []
+    with app.app_context():
+        qbs = Player.query.filter_by(position="QB")
+        rbs = Player.query.filter_by(position="RB")
+        wrs = Player.query.filter_by(position="WR")
+        tes = Player.query.filter_by(position="TE")
+
+    qblist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
+    rblist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
+    wrlist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
+    telist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
+    qbs = list(qbs)
+    rbs = list(rbs)
+    wrs = list(wrs)
+    tes = list(tes)
+
+    qbs.sort(key=lambda x: x.name)
+    rbs.sort(key=lambda x: x.name)
+    wrs.sort(key=lambda x: x.name)
+    tes.sort(key=lambda x: x.name)
+
+    #SORT BY ELO BEFORE SENDING
+    #TO TEMPLATE
+    #WE CAN LIMIT IT TO 5 HERE TO SAVE TIME FOR HOMEPAGE
+
+    count = 0
+    for qb in qbs:
+        qblist[count] = qb
+        count += 1
+        if count == 5:
+            break
+    count = 0
+    for rb in rbs:
+        rblist[count] = rb
+        count += 1
+        if count == 5:
+            break
+    count = 0
+    for wr in wrs:
+        wrlist[count] = wr
+        count += 1
+        if count == 5:
+            break
+    count = 0
+    for te in tes:
+        telist[count] = te
+        count += 1
+        if count == 5:
+            break
+
+    return render_template('home.html', qbs = qblist, rbs = rblist, wrs = wrlist, tes = telist)
     
 @app.route('/about')
 def about():
+    #store/log hit to this endpoint for stats
     session['voted'] = False
     return render_template('about.html')
 
 @app.route('/rankings')
 def rankings():
+    #store/log hit to this endpoint for stats
     session['voted'] = False
     return render_template('rankings.html')
     
 @app.route('/matchups/<num>')
 def matchup(num):
+    #store/log hit to this endpoint for stats
     session['voted'] = False
     return render_template('matchup.html', num=num)
     #return "this is the page for matchup number " + str(num)
@@ -25,6 +89,7 @@ def matchup(num):
 
 @app.route('/voted', methods=['POST'])
 def voted():
+    #store/log hit to this endpoint for stats
     session['voted'] = False
     email = None
     if request.method == 'POST':
@@ -55,4 +120,5 @@ def voted():
 if __name__ == "__main__":
     app.secret_key = '\x98-Y%\xfcL\xb9\xde\xa2\xf0\x829K\xac\xc3\xbe\xac\x0e\xe8\xb0\ni\x92\xb6'
     app.config['SESSION_TYPE'] = 'filesystem'
+
     app.run(debug=True)
