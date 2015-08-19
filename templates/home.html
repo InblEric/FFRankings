@@ -12,7 +12,7 @@
                         <p class="position">Top 5 Running Backs:</p>
                         {% for rb in rbs %}
                         <tr>
-                            <td>{{ rb.name }}</td>
+                            <td><a href = "{{rb.url}}">{{ rb.name }}</a></td>
                             <td>{{ rb.position }}</td>
                             <td>{{ rb.team }}</td>
                         </tr>
@@ -47,7 +47,7 @@
                         <p class="position">Top 5 Wide Receivers:</p>
                         {% for wr in wrs %}
                         <tr>
-                            <td>{{ wr.name }}</td>
+                            <td><a href = "{{wr.url}}">{{ wr.name }}</a></td>
                             <td>{{ wr.position }}</td>
                             <td>{{ wr.team }}</td>
                         </tr>
@@ -82,7 +82,7 @@
                         <p class="position">Top 5 Quarterbacks:</p>
                         {% for qb in qbs %}
                         <tr>
-                            <td>{{ qb.name }}</td>
+                            <td><a href = "{{qb.url}}">{{ qb.name }}</a></td>
                             <td>{{ qb.position }}</td>
                             <td>{{ qb.team }}</td>
                         </tr>
@@ -117,7 +117,7 @@
                         <p class="position">Top 5 Tight Ends:</p>
                         {% for te in tes %}
                         <tr>
-                            <td>{{ te.name }}</td>
+                            <td><a href = "{{te.url}}">{{ te.name }}</a></td>
                             <td>{{ te.position }}</td>
                             <td>{{ te.team }}</td>
                         </tr>
