@@ -11,13 +11,17 @@ class Player(db.Model):
     position = db.Column(db.String(120))
     team = db.Column(db.String(120))
     elo = db.Column(db.String(127))
-    #flexElo = db.Column(db.String(127))
+    flexElo = db.Column(db.String(127))
+    url = db.Column(db.String(120))
 
-    def __init__(self, name, position, team):
+
+    def __init__(self, name, position, team, url):
         self.name = name
         self.position = position
         self.team = team
         self.elo = "1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00"
+        self.flexElo = "1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00,1500.00"
+        self.url = url
 
     def __repr__(self):
         return "" + str(self.name) + " " + str(self.position) + " " + str(self.team)
