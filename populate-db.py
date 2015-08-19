@@ -2,7 +2,8 @@ from ffrankings_app import app
 from ffrankings_app import db
 from ffrankings_app import Player
 import nflgame
-Player.query.delete()
+with app.app_context():
+    Player.query.delete()
 
 QBs = []
 RBs = []
