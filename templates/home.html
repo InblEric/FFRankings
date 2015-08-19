@@ -136,8 +136,8 @@
                     <h3>Voting</h3>
                     <p>Voting links here</p>
                     <p><a id="VotingLink1" href="/matchups/1">Vote</a></p>
-                    {% if voted %}
-                    <p>Thanks for voting for {{ choice }}</p>
+                    {% if session.voted %}
+                    <p>Thanks for voting for {{ session.choice }}</p>
                     {% endif %}
                 </div>
                 <div id="Twitter" class="col-md-4">
