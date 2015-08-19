@@ -82,8 +82,10 @@ def rankings():
 @app.route('/matchups/<num>')
 def matchup(num):
     #store/log hit to this endpoint for stats
+    #player1url = "http://www.nfl.com/player/brucegradkowski/2495838/profile"
     session['voted'] = False
     return render_template('matchup.html', num=num)
+    #return render_template('matchup.html', num=num, player1url = player1url)
     #return "this is the page for matchup number " + str(num)
 
 

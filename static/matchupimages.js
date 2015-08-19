@@ -1,5 +1,11 @@
 $( document ).ready(function() {
-    var playerURL = "http://www.nfl.com/player/brucegradkowski/2495838/profile"
-    var img = $( "#player1" ).load( playerURL + " .player-photo" );
+    //console.log("main");
+
 });
+
+var myFunc = function(playerURL) {
+    var img = $( "#player1" ).load( playerURL + " .player-photo" );
+};
+
+
 
