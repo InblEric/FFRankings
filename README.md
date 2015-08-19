@@ -6,8 +6,12 @@ Flask App for ELO Fantasy Rankings
 
 2. cd into it
 
-3. `$ source venv/bin/activate`
+3. `$virtualenv venv`
 
-4. `$ python ffrankings_app.py`
+4. `$ source venv/bin/activate`
 
-5. Navigate to http://localhost:5000/ in browser.
+5. `$ pip install -r requirements.txt`
+
+6. `$ python ffrankings_app.py`
+
+7. Navigate to http://localhost:5000/ in browser.
