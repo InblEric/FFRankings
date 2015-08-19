@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from models.player import Player
 from models.player import db
+import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
@@ -8,6 +9,18 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 
 # later on
 db.init_app(app)
+
+week1start = datetime.date(2015, 9, 8)
+week1end = datetime.date(2015, 9, 14)
+
+def get_fantasy_week(today=datetime.date.today()):
+    weekend = week1end
+    week = 1
+    while weekend < today:
+        weekend = weekend + datetime.timedelta(days=7)
+        week += 1
+    return week
+
 
 
 emptyPlayer = Player("No more players", "...", "...")
@@ -84,7 +97,8 @@ def matchup(num):
     #store/log hit to this endpoint for stats
     #player1url = "http://www.nfl.com/player/brucegradkowski/2495838/profile"
     session['voted'] = False
-    return render_template('matchup.html', num=num)
+    week = get_fantasy_week()
+    return render_template('matchup.html', num=num, week=week)
     #return render_template('matchup.html', num=num, player1url = player1url)
     #return "this is the page for matchup number " + str(num)
 
