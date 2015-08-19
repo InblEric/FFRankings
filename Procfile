@@ -1,0 +1,1 @@
+web: gunicorn ffrankings_app:app --log-file=-
