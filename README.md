@@ -18,3 +18,11 @@ Flask App for ELO Fantasy Rankings
 7. `$ python ffrankings_app.py`
 
 8. Navigate to http://localhost:5000/ in browser.
+
+
+
+To populate the db, you can do:
+
+   `$ python populate-db.py`
+   
+WARNING: this will wipe out anything currently in the db.
