@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from models.player import Player
 from models.player import db
 import datetime
+import os
 
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
