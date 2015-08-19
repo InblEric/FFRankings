@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="/static/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/static/homepage.css">
 {% extends "layout.html" %}
 {% block body %}
     <p>This is the matchup page for matchup {{ num }}</p>
@@ -8,6 +10,10 @@
     <!-- ACTUALLY MAYBE LOCK ANY WEEK EXCEPT CURRENT -->
     <!-- WE WILL NEED ONE FOR PPR VS NON THOUGH -->
 
+    <div id = "player1"></div>
+
+
+
 
     <form method="post" action="{{ url_for('voted') }}">
         <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
@@ -15,5 +21,7 @@
             <input type="submit" name="value" value="Vote2" />
         </div>
     </form>
-
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+    <script src="{{ url_for('static', filename='matchupimages.js') }}"></script>
 {% endblock %}
+
