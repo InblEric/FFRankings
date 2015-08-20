@@ -3,7 +3,8 @@ from models.player import Player
 from models.player import db
 import datetime
 import os
-
+import traceback
+import sys
 
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
@@ -45,10 +46,13 @@ def hello():
     wrlist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     telist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     print "trying to make lists..."
-    qbs = list(qbs.all())
-    rbs = list(rbs.all())
-    wrs = list(wrs.all())
-    tes = list(tes.all())
+    try:
+        qbs = list(qbs.all())
+        rbs = list(rbs.all())
+        wrs = list(wrs.all())
+        tes = list(tes.all())
+    except Exception, err:
+        print(traceback.format_exc())
     print "done."
     qbs.sort(key=lambda x: x.name)
     rbs.sort(key=lambda x: x.name)
