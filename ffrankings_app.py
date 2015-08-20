@@ -7,8 +7,8 @@ import traceback
 import sys
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 
 
 # later on
@@ -39,21 +39,14 @@ def hello():
         rbs = Player.query.filter_by(position="RB")
         wrs = Player.query.filter_by(position="WR")
         tes = Player.query.filter_by(position="TE")
-    print "type = " + str(type(qbs))
-    print "dir = " + str(dir(qbs))
     qblist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     rblist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     wrlist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     telist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
-    print "trying to make lists..."
-    try:
-        qbs = list(qbs.all())
-        rbs = list(rbs.all())
-        wrs = list(wrs.all())
-        tes = list(tes.all())
-    except Exception, err:
-        print(traceback.format_exc())
-    print "done."
+    qbs = list(qbs.all())
+    rbs = list(rbs.all())
+    wrs = list(wrs.all())
+    tes = list(tes.all())
     qbs.sort(key=lambda x: x.name)
     rbs.sort(key=lambda x: x.name)
     wrs.sort(key=lambda x: x.name)
