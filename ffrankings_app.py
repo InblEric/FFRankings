@@ -44,11 +44,12 @@ def hello():
     rblist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     wrlist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     telist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
-    qbs = list(qbs)
-    rbs = list(rbs)
-    wrs = list(wrs)
-    tes = list(tes)
-
+    print "trying to make lists..."
+    qbs = list(qbs.all())
+    rbs = list(rbs.all())
+    wrs = list(wrs.all())
+    tes = list(tes.all())
+    print "done."
     qbs.sort(key=lambda x: x.name)
     rbs.sort(key=lambda x: x.name)
     wrs.sort(key=lambda x: x.name)
