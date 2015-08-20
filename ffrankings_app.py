@@ -7,8 +7,8 @@ import traceback
 import sys
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 
 
 # later on
@@ -95,21 +95,21 @@ def hello():
 def about():
     print "in about"
     #store/log hit to this endpoint for stats
-    session['voted'] = False
+    #session['voted'] = False
     print "rendering..."
     return render_template('about.html')
 
 @app.route('/rankings')
 def rankings():
     #store/log hit to this endpoint for stats
-    session['voted'] = False
+    #session['voted'] = False
     return render_template('rankings.html')
     
 @app.route('/matchups')
 def matchup():
     #store/log hit to this endpoint for stats
     #player1url = "http://www.nfl.com/player/brucegradkowski/2495838/profile"
-    session['voted'] = False
+    #session['voted'] = False
     week = get_fantasy_week()
     return render_template('matchup.html', week=week)
     #return render_template('matchup.html', num=num, player1url = player1url)
@@ -119,7 +119,7 @@ def matchup():
 @app.route('/voted', methods=['POST'])
 def voted():
     #store/log hit to this endpoint for stats
-    session['voted'] = False
+    #session['voted'] = False
     email = None
     if request.method == 'POST':
         #email = request.form['email']
@@ -137,12 +137,12 @@ def voted():
 
 
         if request.form['value'] == "Vote1":
-            session['voted'] = True
-            session['choice'] = 1
+            #session['voted'] = True
+            #session['choice'] = 1
             return redirect(url_for('hello'))
         elif request.form['value'] == "Vote2":
-            session['voted'] = True
-            session['choice'] = 2
+            #session['voted'] = True
+            #session['choice'] = 2
             return redirect(url_for('hello'))
     return render_template('home.html')
 
