@@ -4,12 +4,18 @@ from models.player import db
 import datetime
 import os
 
+print "imported"
+
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 
+print "set db"
+
 # later on
 db.init_app(app)
+
+print "db init app done"
 
 week1start = datetime.date(2015, 9, 8)
 week1end = datetime.date(2015, 9, 14)
@@ -30,12 +36,13 @@ emptyPlayer = Player("No more players", "...", "...", "")
 def hello():
     #store/log hit to this endpoint for stats
     #players = []
+    print "in hello"
     with app.app_context():
         qbs = Player.query.filter_by(position="QB")
         rbs = Player.query.filter_by(position="RB")
         wrs = Player.query.filter_by(position="WR")
         tes = Player.query.filter_by(position="TE")
-
+    print "got players"
     qblist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     rblist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     wrlist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
@@ -49,7 +56,7 @@ def hello():
     rbs.sort(key=lambda x: x.name)
     wrs.sort(key=lambda x: x.name)
     tes.sort(key=lambda x: x.name)
-
+    print "sorted players"
     #SORT BY ELO BEFORE SENDING
     #TO TEMPLATE
     #WE CAN LIMIT IT TO 5 HERE TO SAVE TIME FOR HOMEPAGE
@@ -78,7 +85,7 @@ def hello():
         count += 1
         if count == 5:
             break
-
+    print "returning template"
     return render_template('home.html', qbs = qblist, rbs = rblist, wrs = wrlist, tes = telist)
     
 @app.route('/about')
