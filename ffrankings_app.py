@@ -47,10 +47,12 @@ def hello():
     rblist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     wrlist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
     telist = [emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer, emptyPlayer]
+    print "empties in"
     qbs = list(qbs)
     rbs = list(rbs)
     wrs = list(wrs)
     tes = list(tes)
+    print "changed to list"
 
     qbs.sort(key=lambda x: x.name)
     rbs.sort(key=lambda x: x.name)
