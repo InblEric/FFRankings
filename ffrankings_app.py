@@ -27,6 +27,16 @@ def get_fantasy_week(today=datetime.date.today()):
     return week
 
 
+def get_player_for_matchup(position = "Flex"):
+    if position == "FLex":
+        pass
+        #Player.query.filter(position != "QB")
+        #flex, pick random players not QB
+    else:
+        pass
+        #pick two random players of specific position
+
+
 
 emptyPlayer = Player("No more players", "...", "...", "")
 
@@ -93,13 +103,13 @@ def rankings():
     session['voted'] = False
     return render_template('rankings.html')
     
-@app.route('/matchups/<num>')
-def matchup(num):
+@app.route('/matchups')
+def matchup():
     #store/log hit to this endpoint for stats
     #player1url = "http://www.nfl.com/player/brucegradkowski/2495838/profile"
     session['voted'] = False
     week = get_fantasy_week()
-    return render_template('matchup.html', num=num, week=week)
+    return render_template('matchup.html', week=week)
     #return render_template('matchup.html', num=num, player1url = player1url)
     #return "this is the page for matchup number " + str(num)
 
