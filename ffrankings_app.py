@@ -93,8 +93,10 @@ def hello():
     
 @app.route('/about')
 def about():
+    print "in about"
     #store/log hit to this endpoint for stats
     session['voted'] = False
+    print "rendering..."
     return render_template('about.html')
 
 @app.route('/rankings')
