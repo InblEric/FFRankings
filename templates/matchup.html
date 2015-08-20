@@ -2,26 +2,48 @@
 <link rel="stylesheet" type="text/css" href="/static/homepage.css">
 {% extends "layout.html" %}
 {% block body %}
-    <p>This is the matchup page for matchup {{ num }}</p>
-    <p>Voting for matchups in week {{ week }}</p>
-
-
-    <!-- ADD IN A DROPDOWN FOR WEEK CHOICE -->
-    <!-- DEFAULT TO CURRENT WEEK -->
-    <!-- ACTUALLY MAYBE LOCK ANY WEEK EXCEPT CURRENT -->
-    <!-- WE WILL NEED ONE FOR PPR VS NON THOUGH -->
-
-    <div id = "player1"></div>
 
 
 
+    <div class="col-md-4">Player 1</div>
 
-    <form method="post" action="{{ url_for('voted') }}">
-        <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
-            <input type="submit" name="value" value="Vote1" />
-            <input type="submit" name="value" value="Vote2" />
-        </div>
-    </form>
+
+    <div class = "col-md-4">
+        <p>This is the matchup page for voting</p>
+        <p>Voting for matchups in week {{ week }}</p>
+
+
+        <!-- ADD IN A DROPDOWN FOR WEEK CHOICE -->
+        <!-- DEFAULT TO CURRENT WEEK -->
+        <!-- ACTUALLY MAYBE LOCK ANY WEEK EXCEPT CURRENT -->
+        <!-- WE WILL NEED ONE FOR PPR VS NON THOUGH -->
+
+
+
+        <select class="custom-dropdown"t>
+            <option value="Standard">Standard</option>
+            <option value="PPR">PPR</option>
+            <option value="Half">0.5 PPR</option>
+        </select>
+
+
+
+        <div id = "player1"></div>
+
+
+
+
+        <form id = "voteform" method="post" action="{{ url_for('voted') }}">
+            <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+                <input type="submit" name="value" value="Vote1" />
+                <input type="submit" name="value" value="Vote2" />
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="col-md-4">Player 2</div>
     <!-- load in jquery, then load in my script, then call a function from that script -->
     <!--
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
