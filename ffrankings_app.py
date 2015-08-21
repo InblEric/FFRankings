@@ -8,8 +8,8 @@ import random
 import sys
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 
 
 # later on
@@ -113,13 +113,17 @@ def get_player_for_matchup(position):
     return qbs[2], qbs[3]
 
 
-@app.route('/matchups/<pos>')
-def matchup(pos):
+@app.route('/matchups/<pos>/<scoring>')
+def matchup(pos, scoring):
     all = False
+    needScoring = True
     if str(pos) == "all":
         all = True
         options = ["qb", "rb", "wr", "te", "flex"]
         pos = random.choice(options)
+
+    if str(pos) == "qb":
+        needScoring = False
 
     #HOW DO I GET THE SCORING???
 
@@ -127,7 +131,7 @@ def matchup(pos):
 
     #store/log hit to this endpoint for stats
     week = get_fantasy_week()
-    return render_template('matchup.html', week=week, pos=str(pos).upper(), player1=player1, player2=player2, all=all)
+    return render_template('matchup.html', week=week, pos=str(pos).upper(), player1=player1, player2=player2, all=all, scoring=scoring, needScoring=needScoring)
     #return render_template('matchup.html', num=num, player1url = player1url)
     #return "this is the page for matchup number " + str(num)
 
@@ -142,7 +146,14 @@ def voted():
     player2 = str(request.form.get('player2'))
     position = str(request.form.get('Position'))
     week = str(get_fantasy_week())
+    scoring = str(request.form.get('scoring'))
+    needScoring = str(request.form.get('needScoring')) == "True"
 
+
+    print "Scoring: " + scoring
+    print "need? " + str(needScoring)
+    if not needScoring:
+        print "QB, no scoring format."
 
     if str(request.form.get('all')) == "True":
         print "came here from all"
