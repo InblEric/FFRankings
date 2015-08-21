@@ -151,9 +151,19 @@
                 </div>
                 <div id="Voting" class="col-md-4">
                     <h3>Voting</h3>
-                    <p>Voting links here</p>
-                    <p><a id="VotingLink1" href="/matchups">Start voting (Random matchups)</a></p>
-                    <p><a id="VotingLink2" href="/">Pick a position to vote on!</a></p>
+                    <p>Scoring:</p>
+                    <select class="custom-dropdown"t>
+                        <option value="Standard">Standard</option>
+                        <option value="PPR">PPR</option>
+                        <option value="Half">0.5 PPR</option>
+                    </select>
+                    <p><a id="VotingLink1" href="/matchups"><b>Start voting (Random matchups)</b></a></p>
+                    <p><a id="VotingLink2" href="/"><b>Vote on QBs!</b></a></p>
+                    <p><a id="VotingLink2" href="/"><b>Vote on RBs!</b></a></p>
+                    <p><a id="VotingLink2" href="/"><b>Vote on WRs!</b></a></p>
+                    <p><a id="VotingLink2" href="/"><b>Vote on TEs!</b></a></p>
+                    <p><a id="VotingLink2" href="/"><b>Vote on Flex players!</b></a></p>
+
                     {% if session.voted %}
                     <p>Thanks for voting for {{ session.choice }}</p>
                     {% endif %}

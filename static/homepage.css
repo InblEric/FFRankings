@@ -26,7 +26,8 @@ h1 {
 
 .columns .container {
     /*background-color: #888888;*/
-    background-color: white;
+    /*background-color: white;*/
+    background-color: #f4f4f4;
     height: 675px;
 }
 
@@ -78,4 +79,43 @@ td {
 div#rankings {
     padding: 20px;
     /*border-bottom: 1px solid #f4f4f4;*/
+}
+
+
+
+select {
+    text-indent: 21px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+
+
+select.custom-dropdown {
+   -webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
+   -moz-appearance: none;  /*REMOVES DEFAULT FIREFOX STYLE*/
+   border: 0;
+
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 10px;
+   width: 130px;
+   background: #0d98e8 no-repeat right center;
+   background-size: 40px 37px; /*TO ACCOUNT FOR @2X IMAGE FOR RETINA */
+   margin-bottom: 20px;
+
+}
+
+option {
+    text-align: center;
+}
+
+#voting p a {
+    /*border: 1px solid black;*/
+    font-size: 20px;
+
 }
