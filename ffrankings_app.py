@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for
 from models.player import Player
 from models.player import db
 import datetime
 import os
 import traceback
+import random
 import sys
 
 app = Flask(__name__)
@@ -27,14 +28,7 @@ def get_fantasy_week(today=datetime.date.today()):
     return week
 
 
-def get_player_for_matchup(position = "Flex"):
-    if position == "FLex":
-        pass
-        #Player.query.filter(position != "QB")
-        #flex, pick random players not QB
-    else:
-        pass
-        #pick two random players of specific position
+
 
 
 
@@ -95,23 +89,45 @@ def hello():
 def about():
     print "in about"
     #store/log hit to this endpoint for stats
-    #session['voted'] = False
     print "rendering..."
     return render_template('about.html')
 
 @app.route('/rankings')
 def rankings():
     #store/log hit to this endpoint for stats
-    #session['voted'] = False
     return render_template('rankings.html')
-    
-@app.route('/matchups')
-def matchup():
+
+def get_player_for_matchup(position):
+    if position == "Flex":
+        pass
+        #Player.query.filter(position != "QB")
+        #flex, pick random players not QB
+    else:
+        pass
+        #pick two random players of specific position
+    # for now do this:
+    with app.app_context():
+        qbs = Player.query.filter_by(position="QB")
+    qbs = list(qbs.all())
+    qbs.sort(key=lambda x: x.name)
+    return qbs[2], qbs[3]
+
+
+@app.route('/matchups/<pos>')
+def matchup(pos):
+    all = False
+    if str(pos) == "all":
+        all = True
+        options = ["qb", "rb", "wr", "te", "flex"]
+        pos = random.choice(options)
+
+    #HOW DO I GET THE SCORING???
+
+    player1, player2 = get_player_for_matchup(pos)
+
     #store/log hit to this endpoint for stats
-    #player1url = "http://www.nfl.com/player/brucegradkowski/2495838/profile"
-    #session['voted'] = False
     week = get_fantasy_week()
-    return render_template('matchup.html', week=week)
+    return render_template('matchup.html', week=week, pos=str(pos).upper(), player1=player1, player2=player2, all=all)
     #return render_template('matchup.html', num=num, player1url = player1url)
     #return "this is the page for matchup number " + str(num)
 
@@ -119,35 +135,44 @@ def matchup():
 @app.route('/voted', methods=['POST'])
 def voted():
     #store/log hit to this endpoint for stats
-    #session['voted'] = False
-    email = None
-    if request.method == 'POST':
-        #email = request.form['email']
-        # Check that email does not already exist (not a great query, but works)
-        #if not db.session.query(User).filter(User.email == email).count():
-        #    reg = User(email)
-        #    db.session.add(reg)
-        #    db.session.commit()
 
 
-        #actually, we want to check the contents of the POST request for the voting results
-        #grab the results, compute ELO changes, and save them
 
-        #then, either send them back to a random vote page or make then navigate themselves
+    player1 = str(request.form.get('player1'))
+    player2 = str(request.form.get('player2'))
+    position = str(request.form.get('Position'))
+    week = str(get_fantasy_week())
 
 
-        if request.form['value'] == "Vote1":
-            #session['voted'] = True
-            #session['choice'] = 1
-            return redirect(url_for('hello'))
-        elif request.form['value'] == "Vote2":
-            #session['voted'] = True
-            #session['choice'] = 2
-            return redirect(url_for('hello'))
+    if str(request.form.get('all')) == "True":
+        print "came here from all"
+        # redirect to matchups/all
+    else:
+        print "came from " + str(position)
+        # redirect to matchups/pos
+
+
+    if request.form.get('value1', None):
+        print "Voted for " + player1 + " over " + player2 + " for " + position + " in week " + week
+        return redirect(url_for('hello'))
+
+
+
+    elif request.form.get('value2', None):
+        print "Voted for " + player2 + " over " + player1 + " for " + position + " in week " + week
+        return redirect(url_for('hello'))
+
+    # grab the results, compute ELO changes, and save them
+    # need to scoring format
+
+    # then, either send them back to a random vote page or make then navigate themselves
+
+
+
+
     return render_template('home.html')
 
 if __name__ == "__main__":
     app.secret_key = '\x98-Y%\xfcL\xb9\xde\xa2\xf0\x829K\xac\xc3\xbe\xac\x0e\xe8\xb0\ni\x92\xb6'
-    app.config['SESSION_TYPE'] = 'filesystem'
 
     app.run(debug=True)
