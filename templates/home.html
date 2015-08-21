@@ -157,16 +157,13 @@
                         <option value="PPR">PPR</option>
                         <option value="Half">0.5 PPR</option>
                     </select>
-                    <p><a id="VotingLink1" href="/matchups"><b>Start voting (Random matchups)</b></a></p>
-                    <p><a id="VotingLink2" href="/"><b>Vote on QBs!</b></a></p>
-                    <p><a id="VotingLink2" href="/"><b>Vote on RBs!</b></a></p>
-                    <p><a id="VotingLink2" href="/"><b>Vote on WRs!</b></a></p>
-                    <p><a id="VotingLink2" href="/"><b>Vote on TEs!</b></a></p>
-                    <p><a id="VotingLink2" href="/"><b>Vote on Flex players!</b></a></p>
+                    <p><a id="VotingLink1" href="/matchups/all"><b>Start voting (Random matchups)</b></a></p>
+                    <p><a id="VotingLink2" href="/matchups/qb"><b>Vote on QBs!</b></a></p>
+                    <p><a id="VotingLink3" href="/matchups/rb"><b>Vote on RBs!</b></a></p>
+                    <p><a id="VotingLink4" href="/matchups/wr"><b>Vote on WRs!</b></a></p>
+                    <p><a id="VotingLink5" href="/matchups/te"><b>Vote on TEs!</b></a></p>
+                    <p><a id="VotingLink6" href="/matchups/flex"><b>Vote on Flex players!</b></a></p>
 
-                    {% if session.voted %}
-                    <p>Thanks for voting for {{ session.choice }}</p>
-                    {% endif %}
                 </div>
                 <div id="Twitter" class="col-md-4">
                     <h3>Twitters</h3>
@@ -185,5 +182,4 @@
             </div>
         </div>
     </div-->
-
 {% endblock %}
