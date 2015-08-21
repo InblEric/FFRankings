@@ -1,10 +1,14 @@
 $( document ).ready(function() {
-    //console.log("main");
+    console.log("main");
 
 });
 
-var myFunc = function(playerURL) {
-    var img = $( "#player1" ).load( playerURL + " .player-photo" );
+var myFuncOne = function(playerURL) {
+    var img = $( "#player1pic" ).load( playerURL + " .player-photo" );
+};
+
+var myFuncTwo = function(playerURL) {
+    var img = $( "#player2pic" ).load( playerURL + " .player-photo" );
 };
 
 
