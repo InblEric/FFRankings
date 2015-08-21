@@ -1,6 +1,12 @@
 
 
+.player1 {
+    text-align: left;
+}
 
+.player2 {
+    text-align: right;
+}
 
 #voteform {
     margin: 20px;
@@ -12,4 +18,5 @@
 
 input {
     margin: 20px;
+    width: 200px;
 }
