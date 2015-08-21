@@ -16,7 +16,7 @@
 
 
 
-        <p class = "question">Who would <em><b>YOU</b></em> rather start at <em><b>{{pos}}</b></em> in <em><b>Week {{ week }}</b>?</em></em></p>
+        <p class = "question">Who would <em><b>YOU</b></em> rather start at <em><b>{{pos}}</b></em> in <em><b>Week {{ week }}</b></em> {% if needScoring %}in <b><em>{{ scoring }}</em></b>{% else %}(any scoring format){% endif %}?</p>
 
 
         <!-- ADD IN A DROPDOWN FOR WEEK CHOICE -->
@@ -42,6 +42,8 @@
                 <input type="hidden" name="player1" value="{{player1}}">
                 <input type="hidden" name="player2" value="{{player2}}">
                 <input type="hidden" name="all" value="{{all}}">
+                <input type="hidden" name="scoring" value="{{scoring}}">
+                <input type="hidden" name="needScoring" value="{{needScoring}}">
                 <p class = "question"><b>OR</b></p>
                 <input type="submit" name="value2" value="{{player2.name}}" />
             </div>
