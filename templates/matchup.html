@@ -6,7 +6,7 @@
 
 
 
-    <div class="col-md-4">Player 1</div>
+    <div class="col-md-4 player1">{{player1}}<div id = "player1pic"></div></div>
 
 
     <div class = "col-md-4">
@@ -16,7 +16,7 @@
 
 
 
-        <p class = "question">Who would <em><b>YOU</b></em> rather start at {POS} in <em><b>Week {{ week }}</b>?</em></em></p>
+        <p class = "question">Who would <em><b>YOU</b></em> rather start at <em><b>{{pos}}</b></em> in <em><b>Week {{ week }}</b>?</em></em></p>
 
 
         <!-- ADD IN A DROPDOWN FOR WEEK CHOICE -->
@@ -30,27 +30,34 @@
 
 
 
-        <div id = "player1"></div>
+
 
 
 
 
         <form id = "voteform" method="post" action="{{ url_for('voted') }}">
             <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
-                <input type="submit" name="value" value="Vote1" />
-                <input type="submit" name="value" value="Vote2" />
+                <input type="submit" name="value1" value="{{player1.name}}" />
+                <input type="hidden" name="Position" value="{{pos}}">
+                <input type="hidden" name="player1" value="{{player1}}">
+                <input type="hidden" name="player2" value="{{player2}}">
+                <input type="hidden" name="all" value="{{all}}">
+                <p class = "question"><b>OR</b></p>
+                <input type="submit" name="value2" value="{{player2.name}}" />
             </div>
         </form>
     </div>
 
 
 
-    <div class="col-md-4">Player 2</div>
+    <div class="col-md-4 player2">{{player2}}<div id = "player2pic"></div></div>
+
     <!-- load in jquery, then load in my script, then call a function from that script -->
-    <!--
+
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
     <script src="{{ url_for('static', filename='matchupimages.js') }}"></script>
-    <script>myFunc( "{{player1url}}" )</script>
-    -->
+    <script>myFuncOne( "{{player1.url}}" )</script>
+    <script>myFuncTwo( "{{player2.url}}" )</script>
+
 {% endblock %}
 
