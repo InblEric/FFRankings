@@ -24,4 +24,4 @@ class Player(db.Model):
         self.url = url
 
     def __repr__(self):
-        return "" + str(self.name) + " " + str(self.position) + " " + str(self.team)
+        return "" + str(self.name) + "," + str(self.position) + "," + str(self.team)
