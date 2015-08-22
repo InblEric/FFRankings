@@ -98,19 +98,26 @@ def rankings():
     return render_template('rankings.html')
 
 def get_player_for_matchup(position):
-    if position == "Flex":
-        pass
-        #Player.query.filter(position != "QB")
-        #flex, pick random players not QB
+    if position == "flex":
+        with app.app_context():
+            players = Player.query.filter(position != "QB")
+            players = list(players.all())
+        random.shuffle(players)
+
+        player1 = players[0]
+        player2 = players[1]
     else:
-        pass
-        #pick two random players of specific position
-    # for now do this:
-    with app.app_context():
-        qbs = Player.query.filter_by(position="QB")
-    qbs = list(qbs.all())
-    qbs.sort(key=lambda x: x.name)
-    return qbs[2], qbs[3]
+        with app.app_context():
+            players = Player.query.filter_by(position=position.upper())
+            players= list(players.all())
+        random.shuffle(players)
+
+
+
+        player1 = players[0]
+        player2 = players[1]
+
+    return player1, player2
 
 
 @app.route('/matchups/<pos>/<scoring>')
@@ -124,8 +131,6 @@ def matchup(pos, scoring):
 
     if str(pos) == "qb":
         needScoring = False
-
-    #HOW DO I GET THE SCORING???
 
     player1, player2 = get_player_for_matchup(pos)
 
