@@ -151,6 +151,8 @@ def matchup(pos, scoring):
     #return "this is the page for matchup number " + str(num)
 
 
+
+
 @app.route('/voted', methods=['POST'])
 def voted():
     #store/log hit to this endpoint for stats
@@ -162,16 +164,18 @@ def voted():
     needScoring = str(request.form.get('needScoring')) == "True"
 
 
-    p1 = player1.split(",")
-    p2 = player2.split(",")
+    p1lookup = player1.split(",")
+    p2lookup = player2.split(",")
 
     with app.app_context():
-        p1 = Player.query.filter(Player.name == p1[0]).filter(Player.position == p1[1]).filter(Player.team == p1[2])
-        p2 = Player.query.filter(Player.name == p2[0]).filter(Player.position == p2[1]).filter(Player.team == p2[2])
+        p1 = Player.query.filter(Player.name == p1lookup[0]).filter(Player.position == p1lookup[1]).filter(Player.team == p1lookup[2])
+        p2 = Player.query.filter(Player.name == p2lookup[0]).filter(Player.position == p2lookup[1]).filter(Player.team == p2lookup[2])
         print "player 1: " + str(list(p1.all())[0])
         print "player 2: " + str(list(p2.all())[0])
         print "player 1 elo: " + str(list(p1.all())[0].elo)
         print "player 2 elo: " + str(list(p2.all())[0].elo)
+        p1 = list(p1.all())[0]
+        p2 = list(p2.all())[0]
 
     if not needScoring:
         print "QB, no scoring format."
@@ -189,6 +193,14 @@ def voted():
     # else
         # if scoring standard
             # compare elo
+            # p1elo = (p1.elo.split(","))[get_fantasy_week()-1]
+            # p2elo = (p2.elo.split(","))[get_fantasy_week()-1]
+            # newp1elo = "p1 new elo"
+            # newp2elo = "p2 new elo"
+            # p1.elo = newp1elo
+            # p2.elo = newp2elo
+            # db.session.commit()
+
         # if scoring ppr
             # compare eloPPR
         # if scoring half
