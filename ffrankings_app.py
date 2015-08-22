@@ -151,6 +151,18 @@ def matchup(pos, scoring):
     #return "this is the page for matchup number " + str(num)
 
 
+def get_new_elos(winner_elo, loser_elo):
+
+    winner_elo_week = (winner_elo.split(","))[get_fantasy_week()-1]
+    loser_elo_week = (loser_elo.split(","))[get_fantasy_week()-1]
+
+    #calculate new ones
+
+    #figure out how to put it back in the list
+
+    new_winner_elo = winner_wlo
+    new_loser_elo = loser_elo
+    return new_winner_elo, new_loser_elo
 
 
 @app.route('/voted', methods=['POST'])
@@ -162,6 +174,15 @@ def voted():
     week = str(get_fantasy_week())
     scoring = str(request.form.get('scoring'))
     needScoring = str(request.form.get('needScoring')) == "True"
+    winner = 0
+
+    if request.form.get('value1', None):
+        winner = 1
+    elif request.form.get('value2', None):
+        winner = 2
+    else:
+        print "wat"
+
 
 
     p1lookup = player1.split(",")
@@ -193,12 +214,20 @@ def voted():
     # else
         # if scoring standard
             # compare elo
-            # p1elo = (p1.elo.split(","))[get_fantasy_week()-1]
-            # p2elo = (p2.elo.split(","))[get_fantasy_week()-1]
-            # newp1elo = "p1 new elo"
-            # newp2elo = "p2 new elo"
-            # p1.elo = newp1elo
-            # p2.elo = newp2elo
+
+            # if on who won
+            # decide how to call get_new_elos
+            # newElo1, newElo2 = None
+            # if winner == 1:
+                # newElo1, newElo2 = get_new_elos(p1.elo, p2.elo)
+            # if winner == 2:
+                # newElo2, newElo1 = get_new_elos(p2.elo, p1.elo)
+
+            # get_new_elos(winner_elo, loser_elo)
+            # newElo1, newElo2 = get_new_elos(None, None)
+
+            # p1.elo = newElo1
+            # p2.elo = newElo2
             # db.session.commit()
 
         # if scoring ppr
