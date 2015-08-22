@@ -106,6 +106,16 @@ def get_player_for_matchup(position):
 
         player1 = players[0]
         player2 = players[1]
+        next = 2
+        while player1.position == "QB":
+            player1 = players[next]
+            next += 1
+        while player2.position == "QB":
+            player2 = players[next]
+            next += 1
+
+
+
     else:
         with app.app_context():
             players = Player.query.filter_by(position=position.upper())
@@ -144,9 +154,6 @@ def matchup(pos, scoring):
 @app.route('/voted', methods=['POST'])
 def voted():
     #store/log hit to this endpoint for stats
-
-
-
     player1 = str(request.form.get('player1'))
     player2 = str(request.form.get('player2'))
     position = str(request.form.get('Position'))
@@ -155,10 +162,38 @@ def voted():
     needScoring = str(request.form.get('needScoring')) == "True"
 
 
-    print "Scoring: " + scoring
-    print "need? " + str(needScoring)
+    p1 = player1.split(",")
+    p2 = player2.split(",")
+
+    with app.app_context():
+        p1 = Player.query.filter(Player.name == p1[0]).filter(Player.position == p1[1]).filter(Player.team == p1[2])
+        p2 = Player.query.filter(Player.name == p2[0]).filter(Player.position == p2[1]).filter(Player.team == p2[2])
+        print "player 1: " + str(list(p1.all())[0])
+        print "player 2: " + str(list(p2.all())[0])
+        print "player 1 elo: " + str(list(p1.all())[0].elo)
+        print "player 2 elo: " + str(list(p2.all())[0].elo)
+
     if not needScoring:
         print "QB, no scoring format."
+
+        # compare elo
+
+    # if position flex
+        # if scoring standard
+            # compare flexElo
+        # if scoring ppr
+            # compare flexEloPPR
+        # if scoring half
+            # compare flexEloHalf
+
+    # else
+        # if scoring standard
+            # compare elo
+        # if scoring ppr
+            # compare eloPPR
+        # if scoring half
+            # compare eloHalf
+
 
     if str(request.form.get('all')) == "True":
         print "came here from all"
@@ -166,6 +201,9 @@ def voted():
     else:
         print "came from " + str(position)
         # redirect to matchups/pos
+
+
+
 
 
     if request.form.get('value1', None):
