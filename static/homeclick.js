@@ -10,7 +10,13 @@ $( document ).ready(function() {
         console.log(scoring)
 
         //MAKE THIS SAFE
-        if ((scoring === "PPR") || (scoring === "Standard") || (scoring === "Half")) {
+        if (scoring === "PPR") {
+            $(this).attr("href", contentPanelId + "/" + scoring);
+        }
+        if (scoring === "Standard") {
+            $(this).attr("href", contentPanelId + "/" + scoring);
+        }
+        if (scoring === "Half") {
             $(this).attr("href", contentPanelId + "/" + scoring);
         }
 
