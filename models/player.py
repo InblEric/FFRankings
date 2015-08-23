@@ -1,7 +1,17 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 #from ffrankings_app import app
+import datetime
 
 db = SQLAlchemy()
+
+week1end = datetime.date(2015, 9, 14)
+def get_fantasy_week(today=datetime.date.today()):
+    weekend = week1end
+    week = 1
+    while weekend < today:
+        weekend = weekend + datetime.timedelta(days=7)
+        week += 1
+    return week
 
 # Create our database models
 class Player(db.Model):
@@ -17,6 +27,13 @@ class Player(db.Model):
     flexEloPPR = db.Column(db.String(127))
     flexEloHalf = db.Column(db.String(127))
     url = db.Column(db.String(120))
+
+    def get_week_elo(self):
+
+        week = get_fantasy_week()
+        elo_week = float((self.elo.split(","))[week-1])
+
+        return elo_week
 
 
     def __init__(self, name, position, team, url):
