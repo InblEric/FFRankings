@@ -2,5 +2,44 @@
 <link rel="stylesheet" type="text/css" href="/static/homepage.css">
 {% extends "layout.html" %}
 {% block body %}
-<p>Rankings:</p>
+<div id= "Rankings">
+    <h3>Current Rankings:</h3>
+    <table id="QB" class="col-md-3">
+    <!--p class="position">Top Quarter Backs:</p-->
+    {% for qb in qbs %}
+        <tr>
+            <td><a href = "{{qb.url}}">{{ qb.name }}</a></td>
+            <td>{{ qb.get_week_elo() }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    <table id="RB" class="col-md-3">
+    <!--p class="position">Top Running Backs:</p-->
+    {% for rb in rbs %}
+        <tr>
+            <td><a href = "{{rb.url}}">{{ rb.name }}</a></td>
+            <td>{{ rb.get_week_elo() }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    <table id="WR" class="col-md-3">
+    {% for wr in wrs %}
+        <tr>
+            <td><a href = "{{wr.url}}">{{ wr.name }}</a></td>
+            <td>{{ wr.get_week_elo() }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    <table id="TE" class="col-md-3">
+    {% for te in tes %}
+        <tr>
+            <td><a href = "{{te.url}}">{{ te.name }}</a></td>
+            <td>{{ te.get_week_elo() }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
 {% endblock %}
