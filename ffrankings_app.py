@@ -349,7 +349,7 @@ def voted():
         print "Voted for " + str(p1lookup[0]) + " over " + str(p2lookup[0]) + " for " + position + " in week " + week
         return redirect(url_for('hello'))
     elif winner == 2:
-        print "Voted for " + str(p1lookup[0]) + " over " + str(p2lookup[0]) + " for " + position + " in week " + week
+        print "Voted for " + str(p2lookup[0]) + " over " + str(p1lookup[0]) + " for " + position + " in week " + week
         return redirect(url_for('hello'))
     return render_template('home.html')
 
