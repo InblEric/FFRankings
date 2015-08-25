@@ -4,6 +4,7 @@ import datetime
 
 db = SQLAlchemy()
 
+week1start = datetime.date(2015, 9, 8)
 week1end = datetime.date(2015, 9, 14)
 def get_fantasy_week(today=datetime.date.today()):
     weekend = week1end
