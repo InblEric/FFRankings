@@ -77,6 +77,7 @@ td {
     width: 100%;
 }
 
+
 div#rankings {
     padding: 20px;
     /*border-bottom: 1px solid #f4f4f4;*/
@@ -90,6 +91,10 @@ select {
     margin: 0 auto;
 }
 
+
+div#rankings table.col-md-2 {
+    width: 20%;
+}
 
 
 
