@@ -69,7 +69,7 @@ with app.app_context():
             i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
-    db.session.commit()
+    #db.session.commit()
 
 count = 0
 ranks = []
@@ -111,7 +111,7 @@ with app.app_context():
             i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
-    db.session.commit()
+    #db.session.commit()
 
 count = 0
 ranks = []
@@ -153,7 +153,7 @@ with app.app_context():
             i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
-    db.session.commit()
+    #db.session.commit()
 
 count = 0
 ranks = []
@@ -195,7 +195,7 @@ with app.app_context():
             i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
-    db.session.commit()
+    #db.session.commit()
 
 
 
