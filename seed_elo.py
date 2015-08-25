@@ -51,6 +51,11 @@ with app.app_context():
             week = get_fantasy_week()
             elo_arr[week-1] = str("%.2f" % elo)
             i.elo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
         else:
             print str(i) + " rank= " + str(rank)
             elo = 1100
@@ -59,6 +64,11 @@ with app.app_context():
             week = get_fantasy_week()
             elo_arr[week-1] = str("%.2f" % elo)
             i.elo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
     db.session.commit()
 
 count = 0
@@ -83,6 +93,11 @@ with app.app_context():
             week = get_fantasy_week()
             elo_arr[week-1] = str("%.2f" % elo)
             i.elo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
         else:
             print str(i) + " rank= " + str(rank)
             elo = 1100
@@ -91,6 +106,11 @@ with app.app_context():
             week = get_fantasy_week()
             elo_arr[week-1] = str("%.2f" % elo)
             i.elo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
     db.session.commit()
 
 count = 0
@@ -115,6 +135,11 @@ with app.app_context():
             week = get_fantasy_week()
             elo_arr[week-1] = str("%.2f" % elo)
             i.elo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
         else:
             print str(i) + " rank= " + str(rank)
             elo = 1100
@@ -123,6 +148,11 @@ with app.app_context():
             week = get_fantasy_week()
             elo_arr[week-1] = str("%.2f" % elo)
             i.elo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
     db.session.commit()
 
 count = 0
@@ -147,6 +177,11 @@ with app.app_context():
             week = get_fantasy_week()
             elo_arr[week-1] = str("%.2f" % elo)
             i.elo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
         else:
             print str(i) + " rank= " + str(rank)
             elo = 1100
@@ -155,6 +190,11 @@ with app.app_context():
             week = get_fantasy_week()
             elo_arr[week-1] = str("%.2f" % elo)
             i.elo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.eloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
+            i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
     db.session.commit()
 
 
