@@ -9,8 +9,8 @@ import sys
 import math
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 
 
 # later on
@@ -103,21 +103,24 @@ def rankings():
         rbs = Player.query.filter_by(position="RB")
         wrs = Player.query.filter_by(position="WR")
         tes = Player.query.filter_by(position="TE")
+        flexes = Player.query.filter(Player.position != "QB")
     qbs = list(qbs.all())
     rbs = list(rbs.all())
     wrs = list(wrs.all())
     tes = list(tes.all())
+    flexes= list(flexes.all())
     qbs.sort(key=lambda x: x.get_week_elo(), reverse=True)
     rbs.sort(key=lambda x: x.get_week_elo(), reverse=True)
     wrs.sort(key=lambda x: x.get_week_elo(), reverse=True)
     tes.sort(key=lambda x: x.get_week_elo(), reverse=True)
+    flexes.sort(key=lambda x: x.get_week_elo_flex(), reverse=True)
     #store/log hit to this endpoint for stats
-    return render_template('rankings.html', qbs=qbs, rbs=rbs, wrs=wrs, tes=tes)
+    return render_template('rankings.html', qbs=qbs, rbs=rbs, wrs=wrs, tes=tes, flexes=flexes)
 
 def get_player_for_matchup(position):
     if position == "flex":
         with app.app_context():
-            players = Player.query.filter(position != "QB")
+            players = Player.query.filter(Player.position != "QB")
             players = list(players.all())
         random.shuffle(players)
 
@@ -148,7 +151,7 @@ def get_player_for_matchup(position):
 
 
 @app.route('/matchups/<pos>/<scoring>')
-def matchup(pos, scoring):
+def matchups(pos, scoring):
     needScoring = True
     all = False
     if str(pos) == "all":
@@ -228,7 +231,7 @@ def voted():
         p2 = Player.query.filter(Player.name == p2lookup[0]).filter(Player.position == p2lookup[1]).filter(Player.team == p2lookup[2]).first()
         #p1 = list(p1.all())[0]
         #p2 = list(p2.all())[0]
-
+        print position
         if position.upper() == "QB":
             print "QB, no scoring format."
 
@@ -247,8 +250,10 @@ def voted():
 
         # options = ["qb", "rb", "wr", "te", "flex"]
 
-        elif position == "flex":
+
+        elif position.upper() == "FLEX":
             if scoring == "Standard":
+                print "flex standard"
                 if winner == 1:
                     newElo1, newElo2 = get_new_elos(p1.flexElo, p2.flexElo)
                     with app.app_context():
@@ -334,16 +339,10 @@ def voted():
         print "came here from all"
         # redirect to matchups/all
 
-
-
-
-        #return redirect(url_for('matchup'), pos="all", scoring=scoring)
-        #return redirect(url_for('matchups/qb/standard'))
-        #return redirect(url_for('matchup/all/' + scoring))
+        return redirect(url_for('matchups', pos='all', scoring=scoring))
     else:
         print "came from " + str(position)
-        # redirect to matchups/pos
-        #return redirect(url_for('matchups/' + str(position) + "/" + scoring))
+        return redirect(url_for('matchups', pos=position, scoring=scoring))
 
     if winner == 1:
         print "Voted for " + str(p1lookup[0]) + " over " + str(p2lookup[0]) + " for " + position + " in week " + week
