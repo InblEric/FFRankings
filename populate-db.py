@@ -6,10 +6,6 @@ with app.app_context():
     db.drop_all()
     db.create_all()
 
-QBs = []
-RBs = []
-WRs = []
-TEs = []
 with app.app_context():
     for p in nflgame.players.itervalues():
         if p.position == 'QB':
@@ -17,10 +13,10 @@ with app.app_context():
             db.session.add(player)
         elif p.position == 'RB':
             player = Player(p.name, p.position, p.team, p.profile_url)
-            db.session.add(player)        
+            db.session.add(player)
         elif p.position == 'WR':
             player = Player(p.name, p.position, p.team, p.profile_url)
-            db.session.add(player)        
+            db.session.add(player)
         elif p.position == 'TE':
             player = Player(p.name, p.position, p.team, p.profile_url)
             db.session.add(player)
