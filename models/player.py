@@ -36,6 +36,12 @@ class Player(db.Model):
 
         return elo_week
 
+    def get_week_elo_ppr(self):
+        week = get_fantasy_week()
+        elo_week = float((self.eloPPR.split(","))[week-1])
+
+        return elo_week
+
     def get_week_elo_flex(self):
         week = get_fantasy_week()
         elo_week = float((self.flexElo.split(","))[week-1])
