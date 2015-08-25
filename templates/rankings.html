@@ -14,40 +14,40 @@
     <h3>Current Rankings:</h3>
     <table id="QB" class="col-md-2">
         <th>Quarter Backs:</th>
-        {% for qb in qbs %}
+        {% for p in qbs %}
             <tr>
-                <td><a href = "{{qb.url}}">{{ qb.name }}</a></td>
-                <td class="elo">{{ qb.get_week_elo() }}</td>
+                <td><a href = "{{p.url}}">{{ p.name }}</a></td>
+                <td class="elo">{{ p.get_week_elo() }}</td>
             </tr>
         {% endfor %}
     </table>
 
     <table id="RB" class="col-md-2">
         <th>Running Backs:</th>
-        {% for rb in rbs %}
+        {% for p in rbs %}
             <tr>
-                <td><a href = "{{rb.url}}">{{ rb.name }}</a></td>
-                <td class="elo">{{ rb.get_week_elo() }}</td>
+                <td><a href = "{{p.url}}">{{ p.name }}</a></td>
+                <td class="elo">{{ p.get_week_elo() }}</td>
             </tr>
         {% endfor %}
     </table>
 
     <table id="WR" class="col-md-2">
         <th>Wide Receivers:</th>
-        {% for wr in wrs %}
+        {% for p in wrs %}
             <tr>
-                <td><a href = "{{wr.url}}">{{ wr.name }}</a></td>
-                <td class="elo">{{ wr.get_week_elo() }}</td>
+                <td><a href = "{{p.url}}">{{ p.name }}</a></td>
+                <td class="elo">{{ p.get_week_elo() }}</td>
             </tr>
         {% endfor %}
     </table>
 
     <table id="TE" class="col-md-2">
         <th>Tight Ends:</th>
-        {% for te in tes %}
+        {% for p in tes %}
             <tr>
-                <td><a href = "{{te.url}}">{{ te.name }}</a></td>
-                <td class="elo">{{ te.get_week_elo() }}</td>
+                <td><a href = "{{p.url}}">{{ p.name }}</a></td>
+                <td class="elo">{{ p.get_week_elo() }}</td>
             </tr>
         {% endfor %}
     </table>
@@ -57,7 +57,7 @@
         {% for p in flexes %}
             <tr>
                 <td><a href = "{{p.url}}">{{ p.name }}</a></td>
-                <td class="elo">{{ p.get_week_elo_flex() }}</td>
+                <td class="elo_flex">{{ p.get_week_elo_flex() }}</td>
             </tr>
         {% endfor %}
     </table>
