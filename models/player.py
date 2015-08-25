@@ -21,12 +21,12 @@ class Player(db.Model):
     name = db.Column(db.String(120))
     position = db.Column(db.String(120))
     team = db.Column(db.String(120))
-    elo = db.Column(db.String(127))
-    eloPPR = db.Column(db.String(127))
-    eloHalf = db.Column(db.String(127))
-    flexElo = db.Column(db.String(127))
-    flexEloPPR = db.Column(db.String(127))
-    flexEloHalf = db.Column(db.String(127))
+    elo = db.Column(db.String(200))
+    eloPPR = db.Column(db.String(200))
+    eloHalf = db.Column(db.String(200))
+    flexElo = db.Column(db.String(200))
+    flexEloPPR = db.Column(db.String(200))
+    flexEloHalf = db.Column(db.String(200))
     url = db.Column(db.String(120))
 
     def get_week_elo(self):
