@@ -78,8 +78,8 @@ def about():
     print "rendering..."
     return render_template('about.html')
 
-@app.route('/rankings')
-def rankings():
+@app.route('/rankings/<scoring>')
+def rankings(scoring):
     #store/log hit to this endpoint for stats
     #players = []
     with app.app_context():
@@ -99,7 +99,7 @@ def rankings():
     tes.sort(key=lambda x: x.get_week_elo(), reverse=True)
     flexes.sort(key=lambda x: x.get_week_elo_flex(), reverse=True)
     #store/log hit to this endpoint for stats
-    return render_template('rankings.html', qbs=qbs, rbs=rbs, wrs=wrs, tes=tes, flexes=flexes)
+    return render_template('rankings.html', qbs=qbs, rbs=rbs, wrs=wrs, tes=tes, flexes=flexes, scoring=scoring)
 
 def get_player_for_matchup(position):
     if position == "flex":
