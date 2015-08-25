@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from models.player import Player
 from models.player import db
+from models.player import get_fantasy_week
 import datetime
 import os
 import traceback
@@ -19,19 +20,6 @@ db.init_app(app)
 
 week1start = datetime.date(2015, 9, 8)
 week1end = datetime.date(2015, 9, 14)
-
-def get_fantasy_week(today=datetime.date.today()):
-    weekend = week1end
-    week = 1
-    while weekend < today:
-        weekend = weekend + datetime.timedelta(days=7)
-        week += 1
-    return week
-
-
-
-
-
 
 emptyPlayer = Player("No more players", "...", "...", "")
 
