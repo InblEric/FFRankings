@@ -17,10 +17,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 # later on
 db.init_app(app)
 
-
-week1start = datetime.date(2015, 9, 8)
-week1end = datetime.date(2015, 9, 14)
-
 emptyPlayer = Player("No more players", "...", "...", "")
 
 @app.route('/')
