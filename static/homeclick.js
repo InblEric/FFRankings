@@ -1,5 +1,10 @@
 $( document ).ready(function() {
     console.log("main");
+
+    //CHANGE THIS TO USE .change
+    //so it's when they use the dropdown
+    //to edit the links
+
     $( "  #voting p a" ).click(function(e) {
         console.log( "clicked on " );
         var contentPanelId = jQuery(this).attr("href");
