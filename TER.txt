@@ -1,0 +1,107 @@
+1        Rob Gronkowski NE, 4         1        1        1.0        0.0        1.0        0.0
+2        Jimmy Graham SEA, 9         2        5        2.2        0.6        2.0        0.0
+3        Greg Olsen CAR, 5         2        5        3.5        0.7        3.0        0.0
+4        Travis Kelce KC, 9         2        5        3.6        0.7        4.0        0.0
+5        Martellus Bennett CHI, 7         3        14        5.4        1.7        5.0        0.0
+6        Jordan Cameron MIA, 5         5        13        7.8        2.0        8.0        +2.0
+7        Jason Witten DAL, 6         5        15        8.2        1.9        7.0        0.0
+8        Delanie Walker TEN, 4         5        25        9.3        3.5        13.0        +5.0
+9        Julius Thomas JAC, 8         5        18        9.3        2.9        6.0        -3.0
+10        Zach Ertz PHI, 8         6        32        10.0        4.7        10.0        0.0
+11        Tyler Eifert CIN, 7         7        25        13.6        4.3        19.0        +8.0
+12        Dwayne Allen IND, 10         6        22        13.8        3.8        9.0        -3.0
+13        Kyle Rudolph MIN, 5         2        25        14.7        4.7        15.0        +2.0
+14        Owen Daniels DEN, 7         6        31        16.3        5.0        11.0        -3.0
+15        Antonio Gates SD, 10         9        24        16.0        3.6        12.0        -3.0
+16        Austin Seferian-Jenkins TB, 6         9        28        16.7        4.6        24.0        +8.0
+17        Larry Donnell NYG, 11         10        26        17.0        4.2        25.0        +8.0
+18        Josh Hill NO, 11         6        34        18.6        5.5        17.0        -1.0
+19        Heath Miller PIT, 11         11        27        18.0        3.2        18.0        -1.0
+20        Vernon Davis SF, 10         6        33        20.0        5.8        16.0        -4.0
+21        Coby Fleener IND, 10         8        34        20.0        4.8        14.0        -7.0
+22        Jordan Reed WAS, 8         6        29        20.5        4.6        27.0        +5.0
+23        Charles Clay BUF, 8         12        32        21.8        4.4        20.0        -3.0
+24        Ladarius Green SD, 10         11        32        22.0        4.3        23.0        -1.0
+25        Eric Ebron DET, 9         12        39        24.0        5.0        21.0        -4.0
+26        Jared Cook STL, 6         14        31        25.1        3.9        22.0        -4.0
+27        Mychal Rivera OAK, 6         6        39        28.8        5.1        31.0        +4.0
+28        Richard Rodgers GB, 7         16        39        26.6        4.7        28.0        0.0
+29        Jace Amaro NYJ, 5         16        36        27.0        3.7        38.0        +9.0
+30        Maxx Williams BAL, 9         17        44        29.1        5.3        29.0        -1.0
+31        Rob Housler CLE, 11         15        54        32.4        5.9                
+32        Benjamin Watson NO, 11         20        45        32.5        5.1        32.0        0.0
+33        Virgil Green DEN, 7         23        55        35.8        7.2        26.0        -7.0
+34        Darren Fells ARI, 9         24        67        46.8        12.2                
+35        Jacob Tamme ATL, 10         25        37        31.2        2.7        37.0        +2.0
+36        Crockett Gillmore BAL, 9         26        53        39.1        6.6        39.0        +3.0
+37        Clive Walford OAK, 6         26        52        37.4        6.9        35.0        -2.0
+38        Garrett Graham HOU, 9         26        45        35.6        4.4                
+39        Scott Chandler NE, 4         27        56        38.2        6.9                
+40        Dennis Pitta BAL, 9         28        49        38.8        7.2                
+41        Brent Celek PHI, 8         28        43        35.6        4.0                
+42        Troy Niklas ARI, 9         29        76        45.9        11.9                
+43        Lance Kendricks STL, 6         29        47        36.8        4.6                
+44        Ed Dickson CAR, 5         30        69        52.8        11.3                
+45        Jeff Cumberland NYJ, 5         31        60        44.8        7.5        34.0        -11.0
+46        Gavin Escobar DAL, 6         31        45        39.5        3.6        36.0        -10.0
+47        EJ Bibbs CLE, 11         32        56        44.0        12.0                
+48        Jermaine Gresham ARI, 9         33        74        42.3        9.3                
+49        Tim Wright TB, 6         33        63        43.2        8.3                
+50        Andrew Quarless GB, 7         33        53        42.9        4.9        33.0        -17.0
+51        Dion Sims MIA, 5         33        51        44.2        4.6        30.0        -21.0
+52        Luke Willson SEA, 9         34        57        43.8        5.4                
+53        CJ Fiedorowicz HOU, 9         35        71        49.3        10.0                
+54        Tony Moeaki ATL, 10         36        79        51.5        13.4                
+55        Levine Toilolo ATL, 10         36        65        49.1        8.0                
+56        Chase Ford MIN, 5         37        93        62.8        20.9                
+57        Marcedes Lewis JAC, 8         37        54        43.6        4.8                
+58        Joseph Fauria DET, 9         38        58        47.1        6.4                
+59        Gary Barnidge CLE, 11         42        69        54.2        8.6                
+60        Daniel Fells NYG, 11         42        60        50.8        5.6                
+61        Demetrius Harris KC, 9         44        95        71.5        19.0                
+62        MyCole Pruitt MIN, 5         44        84        60.4        14.6                
+63        James Casey DEN, 7         44        62        54.4        7.3                
+64        Anthony Fasano TEN, 4         45        86        56.6        12.8                
+65        Brandon Myers TB, 6         45        76        57.3        8.5                
+66        Jack Doyle IND, 10         47        84        64.0        14.3                
+67        Rhett Ellison MIN, 5         50        82        64.1        9.8                
+68        Tyler Kroft CIN, 7         50        77        62.1        8.5                
+69        Cooper Helfet SEA, 9         51        86        62.3        14.3                
+70        Logan Paulsen WAS, 8         51        67        58.5        6.7                
+71        Je'Ron Hamm WAS, 8         51        53        52.0        1.0                
+72        Jesse James PIT, 11         52        85        68.0        10.6                
+73        Brandon Pettigrew DET, 9         53        74        61.3        6.9                
+74        Jim Dray CLE, 11         54        70        60.9        5.5                
+75        Matt Spaeth PIT, 11         56        77        66.0        6.8                
+76        Chris Gragg BUF, 8         58        98        72.8        14.6                
+77        Ryan Griffin HOU, 9         58        75        67.5        6.3                
+78        Dante Rosario CHI, 7         58        71        64.5        4.8                
+79        MarQueis Gray BUF, 8         59        81        69.0        7.9                
+80        James O'Shaughnessy KC, 9         59        75        67.3        6.5                
+81        Nick O'Leary BUF, 8         60        98        75.5        14.0                
+82        Vance McDonald SF, 10         60        73        66.2        4.9                
+83        Clay Harbor JAC, 8         62        84        72.3        9.4                
+84        Chase Dixon WAS, 8         63        68        65.5        2.5                
+85        Phillip Supernaw TEN, 4         64        65        64.5        0.5                
+86        David Johnson SD, 10         65        68        66.5        1.5                
+87        Luke Stocker TB, 6         66        96        80.0        10.4                
+88        John Phillips SD, 10         66        86        77.3        8.4                
+89        Lee Smith OAK, 6         67        82        75.3        6.2                
+90        Craig Stevens TEN, 4         70        71        70.5        0.5                
+91        Orson Charles NO, 11         71        87        80.7        6.9                
+92        Trey Burton PHI, 8         72        91        83.3        8.2                
+93        Blake Bell SF, 10         72        74        73.0        1.0                
+94        CJ Uzomah CIN, 7         73        95        81.7        9.6                
+95        Adrien Robinson NYG, 11         73        87        78.2        4.5                
+96        Michael Hoomanawanui NE, 4         75        83        78.2        3.1                
+97        Dominique Jones DEN, 7         76        88        82.0        6.0                
+98        Gerald Christian ARI, 9         78        87        82.5        4.5                
+99        James Hanna DAL, 6         79        92        85.5        6.5                
+100        Derek Carrier WAS, 8         79        89        85.3        4.5                
+101        Nick Boyle BAL, 9         81        90        85.5        4.5                
+102        Brandon Williams CAR, 5         82        96        87.7        6.0                
+103        Anthony McCoy SEA, 9         83        97        90.0        7.0                
+104        Kellen Davis NYJ, 5         83        93        88.0        5.0                
+105        Kennard Backman GB, 7         83        86        84.5        1.5                
+106        Gerrell Robinson DEN, 7         88        90        89.0        1.0                
+107        Richard Gordon KC, 9         89        92        90.5        1.5
