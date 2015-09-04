@@ -10,8 +10,8 @@ import sys
 import math
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 
 
 # later on
@@ -92,14 +92,27 @@ def rankings(scoring):
     rbs = list(rbs.all())
     wrs = list(wrs.all())
     tes = list(tes.all())
-    flexes= list(flexes.all())
-    qbs.sort(key=lambda x: x.get_week_elo(), reverse=True)
-    rbs.sort(key=lambda x: x.get_week_elo(), reverse=True)
-    wrs.sort(key=lambda x: x.get_week_elo(), reverse=True)
-    tes.sort(key=lambda x: x.get_week_elo(), reverse=True)
-    flexes.sort(key=lambda x: x.get_week_elo_flex(), reverse=True)
+    flexes = list(flexes.all())
+    if scoring.lower() == "standard":
+        qbs.sort(key=lambda x: x.get_week_elo(), reverse=True)
+        rbs.sort(key=lambda x: x.get_week_elo(), reverse=True)
+        wrs.sort(key=lambda x: x.get_week_elo(), reverse=True)
+        tes.sort(key=lambda x: x.get_week_elo(), reverse=True)
+        flexes.sort(key=lambda x: x.get_week_elo_flex(), reverse=True)
+    elif scoring.lower() == "ppr":
+        qbs.sort(key=lambda x: x.get_week_elo_ppr(), reverse=True)
+        rbs.sort(key=lambda x: x.get_week_elo_ppr(), reverse=True)
+        wrs.sort(key=lambda x: x.get_week_elo_ppr(), reverse=True)
+        tes.sort(key=lambda x: x.get_week_elo_ppr(), reverse=True)
+        flexes.sort(key=lambda x: x.get_week_elo_flex_ppr(), reverse=True)
+    elif scoring.lower() == "half":
+        qbs.sort(key=lambda x: x.get_week_elo_half(), reverse=True)
+        rbs.sort(key=lambda x: x.get_week_elo_half(), reverse=True)
+        wrs.sort(key=lambda x: x.get_week_elo_half(), reverse=True)
+        tes.sort(key=lambda x: x.get_week_elo_half(), reverse=True)
+        flexes.sort(key=lambda x: x.get_week_elo_flex_half(), reverse=True)
     #store/log hit to this endpoint for stats
-    return render_template('rankings.html', qbs=qbs, rbs=rbs, wrs=wrs, tes=tes, flexes=flexes, scoring=scoring)
+    return render_template('rankings.html', qbs=qbs, rbs=rbs, wrs=wrs, tes=tes, flexes=flexes, scoring=scoring.lower())
 
 def get_player_for_matchup(position):
     if position == "flex":
