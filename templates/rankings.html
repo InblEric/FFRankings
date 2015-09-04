@@ -6,9 +6,20 @@
 
 
     <select class="custom-dropdown"t>
-        <option value="Standard">Standard</option>
+        {% if scoring == "standard" %}
+        <option selected="selected" value="Standard">Standard</option>
         <option value="PPR">PPR</option>
         <option value="Half">0.5 PPR</option>
+        {% elif scoring == "ppr" %}
+        <option value="Standard">Standard</option>
+        <option selected="selected"value="PPR">PPR</option>
+        <option value="Half">0.5 PPR</option>
+        {% elif scoring == "half" %}
+        <option value="Standard">Standard</option>
+        <option value="PPR">PPR</option>
+        <option selected="selected" value="Half">0.5 PPR</option>
+        {% endif %}
+
     </select>
 
     <h3>Current Rankings:</h3>
