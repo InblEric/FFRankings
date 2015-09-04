@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from models.player import Player
-from models.player import db
+from models.week import Week
+from models.shared import db
 from models.player import get_fantasy_week
 import datetime
 import os
@@ -10,8 +11,8 @@ import sys
 import math
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 
 
 # later on
@@ -23,6 +24,27 @@ emptyPlayer = Player("No more players", "...", "...", "")
 def hello():
     #store/log hit to this endpoint for stats
     #players = []
+
+    print "getting week"
+    with app.app_context():
+        weeks = Week.query.all()
+        print "weeks " + str(weeks)
+        for week in weeks:
+            if week.is_current_week():
+                print week
+                print week.seeded
+                if not week.seeded:
+                    print "Seeding week based on previous"
+                    if week.num == 1:
+                        print "Can't seed based on previous week"
+                        print "Seeding based on files"
+                        #Call seed elo week 1 files
+                    else:
+                        print "Seeding..."
+                        #call seed elo week num previous
+
+    print "done"
+
     with app.app_context():
         qbs = Player.query.filter_by(position="QB")
         rbs = Player.query.filter_by(position="RB")
