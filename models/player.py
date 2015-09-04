@@ -2,7 +2,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 #from ffrankings_app import app
 import datetime
 
-db = SQLAlchemy()
+from models.shared import db
 
 week1start = datetime.date(2015, 9, 8)
 week1end = datetime.date(2015, 9, 14)
