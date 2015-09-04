@@ -1,6 +1,7 @@
 from ffrankings_app import app
 from ffrankings_app import db
 from ffrankings_app import Player
+from ffrankings_app import Week
 from models.player import get_fantasy_week
 
 def lookupRank(pos, fname, lname):
@@ -25,8 +26,6 @@ def lookupRank(pos, fname, lname):
                 if fname in line and lname in line:
                     return int(line[0:3])
     return -1
-
-
 
 
 count = 0
@@ -69,7 +68,7 @@ with app.app_context():
             i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
-    #db.session.commit()
+    db.session.commit()
 
 count = 0
 ranks = []
@@ -111,7 +110,7 @@ with app.app_context():
             i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
-    #db.session.commit()
+    db.session.commit()
 
 count = 0
 ranks = []
@@ -153,7 +152,7 @@ with app.app_context():
             i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
-    #db.session.commit()
+    db.session.commit()
 
 count = 0
 ranks = []
@@ -195,10 +194,13 @@ with app.app_context():
             i.flexElo = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloPPR = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
             i.flexEloHalf = str(elo_arr).strip("[]").replace("'", "").replace(" ", "")
-    #db.session.commit()
+    db.session.commit()
 
 
-
+with app.app_context():
+    p = Week.query.filter(Week.num == get_fantasy_week())
+    p[0].seeded = True
+    db.session.commit()
 
 #all = range(1,76)
 #print all
